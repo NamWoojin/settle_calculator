@@ -1,10 +1,36 @@
 <template>
   <div class="input-area">
-    <v-select class="name-select" label="Name" />
-    <v-text-field class="money-input" type="number" />
-    <v-btn class="add-button">추가</v-btn>
+    <v-combobox
+      hide-details="true"
+      class="name-select"
+      label="Name"
+      :items="['test']"
+      v-model="name"
+    />
+    <v-text-field
+      hide-details="true"
+      class="money-input"
+      type="number"
+      v-model="money"
+    />
+    <v-btn class="add-button" @click="onClickAddButton">추가</v-btn>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      money: 0,
+    };
+  },
+  methods: {
+    onClickAddButton: function () {
+      this.$emit("clickAddButton", this.name, this.money);
+    },
+  },
+};
+</script>
 <style scoped>
 .input-area {
   width: 100%;
@@ -25,9 +51,11 @@ input:active {
 }
 .name-select {
   width: 25%;
+  margin-right: 5px;
 }
 .money-input {
   width: 50%;
+  margin-right: 5px;
 }
 .add-button {
   width: 15%;
