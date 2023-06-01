@@ -16,19 +16,15 @@
     <v-btn class="add-button" @click="onClickAddButton">추가</v-btn>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      name: "",
-      money: 0,
-    };
-  },
-  methods: {
-    onClickAddButton: function () {
-      this.$emit("clickAddButton", this.name, this.money);
-    },
-  },
+<script setup>
+import { ref, defineEmits } from "vue";
+const emit = defineEmits(["clickAddButton"]);
+
+const name = ref("");
+const money = ref(0);
+
+const onClickAddButton = function () {
+  emit("clickAddButton", name.value, money.value);
 };
 </script>
 <style scoped>
