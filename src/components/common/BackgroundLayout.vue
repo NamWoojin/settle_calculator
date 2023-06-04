@@ -9,6 +9,8 @@
   padding: 16px;
   background-color: rgba(255, 210, 196, 0.288);
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 </style>

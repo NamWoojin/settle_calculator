@@ -50,7 +50,7 @@ input:active {
   margin-right: 5px;
 }
 .money-input {
-  width: 50%;
+  width: 60%;
   margin-right: 5px;
 }
 .add-button {
